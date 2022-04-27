@@ -21,12 +21,6 @@ public class Manifestation {
     private String lieu;
     private int nbrParticipantPrevu;
     private String siteWeb;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Temporal(TemporalType.DATE)
-    private Date createdAt;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Temporal(TemporalType.DATE)
-    private Date updatedAt;
     @OneToMany(mappedBy = "manifestation")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<ImplicatedEstablishment> implicatedEstablishments;
@@ -53,9 +47,18 @@ public class Manifestation {
     @OneToMany(mappedBy = "manifestation")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Soutien> soutiens;
+    private Double montantGlobal ;
 
 
     public Manifestation() {
+    }
+
+    public Double getMontantGlobal() {
+        return montantGlobal;
+    }
+
+    public void setMontantGlobal(Double montantGlobal) {
+        this.montantGlobal = montantGlobal;
     }
 
     public Long getId() {
@@ -144,22 +147,6 @@ public class Manifestation {
 
     public void setSiteWeb(String siteWeb) {
         this.siteWeb = siteWeb;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public EntityOrganisation getEntityOrganisation() {

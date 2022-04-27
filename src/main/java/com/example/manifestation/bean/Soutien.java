@@ -10,12 +10,20 @@ public class Soutien {
     private String rubrique ;
     private int nombre ;
     private Double montant ;
-    private String remarque ;
-    private Double montantGlobal ;
+    private Double montantPropose ;
+
     @ManyToOne
     private Manifestation manifestation;
 
     public Soutien() {
+    }
+
+    public Double getMontantPropose() {
+        return montantPropose;
+    }
+
+    public void setMontantPropose(Double montantPropose) {
+        this.montantPropose = montantPropose;
     }
 
     public Manifestation getManifestation() {
@@ -66,19 +74,4 @@ public class Soutien {
         this.montant = montant;
     }
 
-    public String getRemarque() {
-        return remarque;
-    }
-
-    public void setRemarque(String remarque) {
-        this.remarque = remarque;
-    }
-
-    public Double getMontantGlobal() {
-        return montantGlobal;
-    }
-
-    public void setMontantGlobal(Double montantGlobal) {
-        this.montantGlobal = montantGlobal;
-    }
 }
